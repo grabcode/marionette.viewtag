@@ -1,0 +1,30 @@
+{
+  "name": "marionette.viewtag",
+  "version": "1.0.0",
+  "homepage": "https://github.com/grabcode/marionette.viewtag",
+  "authors": [
+    "alex <googirard.alex@gmail.com>"
+  ],
+  "description": "Enhance Marionette.js with a declarative way to instantiate views",
+  "main": "src/marionette.viewtag.js",
+  "dependencies": {
+    "backbone.marionette": "~2.4.2"
+  },
+  "keywords": [
+    "Marionette",
+    "Component",
+    "Views",
+    "Declarative",
+    "Transclusion",
+    "Directive",
+    "Angular"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

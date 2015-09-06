@@ -6,13 +6,12 @@ Marionette.Viewtag exposes a declarative way to instantiate your views from your
 
 In a nutshell, any views are now link to a custom html tag. See for yourself:
 
-// Before, inside parentview.js, a common Marionette View (ItemView, CompositeView... whatever)
-
 ```javascript
+// Before, inside parentview.js, a common Marionette View (ItemView, CompositeView... whatever)
 App.Views.ParentView = Marionette.ItemView.extend({
   template : _.template("<h1>Parent View</h1>"
   +"<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>"
-  +"<div id="yoyo"></div>"),
+  +"<div id='yoyo'></div>"),
 
   onRender: function() {
     (new App.Component.Yoyo({
@@ -28,7 +27,7 @@ App.Views.ParentView = Marionette.ItemView.extend({
 App.Views.ParentView = Marionette.ItemView.extend({
   template : _.template("<h1>Parent View</h1>"
   +"<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>"
-  +"<cp-app-views-yoyo data-model="model" data-whatever="ohYeah" />")
+  +"<cp-app-views-yoyo data-model='model' data-whatever='ohYeah' />")
 
   ohYeah : function() {
     console.log('oh yeah');
@@ -76,20 +75,21 @@ App.Views.ParentView = Marionette.ItemView.extend({
 ```
 
 
-API:
-  The Marionette Views that use tags to instantiate views can access the "Marionette view instance" through the "data-component" DOM property. For instance, from my parent view, I could do:
-  ```javascript
-  var subview = this.$el.find('cp-subview').data('component');
-  subview.render(); // I re-render the view at will
-  ```
+### API
 
-  Any view instantiated via a tag get access to its parent marionette view via ```@options.parentView```. Continuing our above scenario, assuming I'm executing the code below still within the parent view:
-  ```javascript
-  subview.options.parentView === this; //true
-  ```
+The Marionette Views that use tags to instantiate views can access the "Marionette view instance" through the "data-component" DOM property. For instance, from my parent view, I could do:
+```javascript
+var subview = this.$el.find('cp-subview').data('component');
+subview.render(); // I re-render the view at will
+```
 
-  Removing the DOM element where the component is injected triggers automatically the ```destroy``` method of the very view.
-  ```javascript
-  // In order to destroy the subview, I could do subview.destroy(), or I could do:
-  this.$el.find('cp-subview').remove();
-  ```
+Any view instantiated via a tag get access to its parent marionette view via ```@options.parentView```. Continuing our above scenario, assuming I'm executing the code below still within the parent view:
+```javascript
+subview.options.parentView === this; //true
+```
+
+Removing the DOM element where the component is injected triggers automatically the ```destroy``` method of the very view.
+```javascript
+// In order to destroy the subview, I could do subview.destroy(), or I could do:
+this.$el.find('cp-subview').remove();
+```

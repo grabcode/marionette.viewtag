@@ -98,3 +98,6 @@ this.$el.find('cp-subview').remove();
 Once feedback and thought aggregated, and curated, I'll add full tests coverage first. Then I see 2 possible ways: either it gets merged into the core Marionette.js framework, or I'll make available to the most famous Javascript package managers along with Bower (npm, components...).
 
 Another thing I need to write down: some assets pipeline such as Sprockets (default Rails solution) uses some GEM to optimize the templates generation (it exposes a JST global variable with every matching templates compiled). The "challenge" here is that this gem(s) implements the _.template (underscore.js) into their respective language (Ruby :s in this instance). That would fairly easy to update, though anytime we wish to update our own implementation of _.template we'd need to update those related packages. We are to lazy to do that, right? So ideally we'd come up with a solution that won't require such work everytime. I wonder if there's any current strategy since Underscore is from time to time being updated...
+
+#### Credit
+We must thank [Practice Ignition](http://practiceignition.com) for initiating the work and using Marionette.Viewtag. Practice Ignition is a startup operating world wide with their dev team in Sydney, Australia.
